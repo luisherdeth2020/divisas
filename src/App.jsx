@@ -27,9 +27,20 @@ function App() {
 		<div className="App">
 			<form action="#" onSubmit={onFormSubmit}>
 				<label htmlFor="#">Choose your divisas</label>
-				<input type="number" value={amountUser} onChange={onInputChange} />
-				<div>
-					<input type="text" list="currency" name="currency" id="divisa" />
+				{/* <input type="number" value={amountUser} onChange={onInputChange} /> */}
+				<div className="pepe">
+					<input
+						autoComplete="off"
+						type="search"
+						list="currency"
+						name="currency"
+						id="divisa"
+						placeholder="Select your fav currency"
+						onFocus={() => {
+							currency.style.display = 'block';
+							input.style.borderRadius = '5px 5px 0 0';
+						}}
+					/>
 					<datalist id="currency">
 						{moneda.map((item, index) => (
 							<option key={index} value={item.to}></option>
